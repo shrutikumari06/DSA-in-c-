@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+// sorted and unsorted array both//
+int linearsearch(int arr[],int size,int elemeant)
+{
+    for(int i=0;i<size;i++)
+    {
+    if(arr[i]==elemeant)
+    {
+        return i;
+    }
+    }
+    return -1;
+}
+//condition of binary search sorted array required//
+int binearysearch(int arr[],int size,int elemeant)
+{
+    int mid,high,low;
+    low=0;
+    high=size-1;
+    while(low<=high){
+    mid=(high+low)/2;
+    if(arr[mid]==elemeant){
+    return mid;
+}
+if(arr[mid]<elemeant){
+    low=mid+1;
+}
+else{
+    high=mid-1;
+}
+}
+return -1;
+}
+int main(){
+    int arr[100]={1,2,3,4,5,6,7};
+    int size=7;
+    int elemeant=5;
+    int linearsearchindex = linearsearch(arr,size,5);
+    cout<<"elemeant 5 found  by linearsearch at index="<<linearsearchindex<<endl;
+    int searchindex=  binearysearch(arr,size,elemeant);
+    cout<<"elemeant found by binarysearch at index= "<<searchindex<<endl;
+    return 0;
+}
