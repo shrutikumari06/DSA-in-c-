@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+int arr[100];
+//traversal of array//
+void display(int arr[],int n)
+{
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<endl;
+}
+cout<<" \n ";
+}
+//know insert an elemeant at index 3//
+int insertionofarray(int arr[],int size,int elemeant,int index,int capacity)
+{
+    if(size>=capacity){
+        return -1;
+    }
+    for(int i=size-1;i>=index;i--)
+    {
+        arr[i+1]=arr[i];
+    }
+    arr[index]=elemeant;
+    return 1;
+}
+int main(){
+    int arr[100]={2,3,4,5,6};
+    int size=5,index=3,elemeant=8;
+    cout<<"traversal of array"<<endl;
+    display(arr,5);
+    insertionofarray(arr,size,elemeant,index,100);
+    size +=1;
+    cout<<"insertition of array"<<endl;
+    display(arr,size);
+return 0;
+}
